@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from config import local_settings
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -144,6 +146,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 # Настройка django-allauth
 SITE_ID = 1
+# TODO: Редирект пока не работает, создай в urls 'home'
 LOGIN_REDIRECT_URL = 'dictionary:home'  # Перенаправление при входе
 ACCOUNT_LOGOUT_REDIRECT = 'dictionary:home'  # Перенаправление при выходе
 ACCOUNT_SESSION_REMEMBER = True  # Запоминать сессии пользователя
@@ -158,3 +161,10 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Почтовые отправления
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = local_settings.EMAIL_HOST  # хост SMTP-сервера
+EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER  # логин пользователя для SMTP-сервера
+EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD  # пароль пользователя для SMTP-сервера
+EMAIL_PORT = 587  # порт SMTP-сервера
+EMAIL_USE_TLS = True  # использовать ли защищенное TLS-подключение
+DEFAULT_FROM_EMAIL = local_settings.DEFAULT_FROM_EMAIL  # От кого будут отправляться письма
