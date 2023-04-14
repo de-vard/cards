@@ -3,15 +3,16 @@
 {% load static %}
 {% block content %}
 <div class="container">
+    <!--*********** Данные в карточке ******************** -->
     <div class="card text-center text-bg-dark mb-3" style="width: 18rem;">
-
         <img src="{{ card.photo.url }}" class="card-img-top" alt="{{card}}">
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title">{{ card.term }}</h5>
           <h6 class="card-title">|{{ card.transcription }}|</h6>
         <p class="card-text">{{ card.definition }}</p>
       </div>
     </div>
+    <!--  ************************************************** -->
     <p><audio controls>
         <source src="{{ card.audi.url }}" type="audio/mpeg">
     </audio></p>
@@ -21,7 +22,7 @@
 
 
 <!-- ********** Форма отправки ошибки в слове ***************** -->
-<form method="post"  action="{% url 'mistake' id=card.id %}">
+<form method="post"  action="{% url 'detail' pk=card.pk %}">
     {% csrf_token %}
     <div class="btn-group">
         <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

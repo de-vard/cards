@@ -17,7 +17,6 @@ class CardAdmin(admin.ModelAdmin):
     readonly_fields = ('get_image',)  # Добавляем изображение
     search_fields = ('term', 'definition',)  # Поиск
     exclude = ('author',)  # Уберем поле из админки
-
     inlines = [
         WrongCardsInline,
     ]
@@ -44,7 +43,7 @@ class CardAdmin(admin.ModelAdmin):
             return 'Да'
         return 'Нет'
 
-    card_have_wrong.short_description = 'Есть ли ошибка'  # Указываем название для коротко названия
+    card_have_wrong.short_description = 'Есть ли ошибка'  # Указываем название для короткого названия
     card_have_wrong.admin_order_field = 'wrong_cards'  # Добавляем сортировку при просмотре всех элементов
     get_image.short_description = 'Изображения'  # Указываем название мини изображения
 

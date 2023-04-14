@@ -6,5 +6,6 @@ from .models import WrongCards
 class WrongCardsForm(ModelForm):
     class Meta:
         model = WrongCards
-        fields = ('mistake_in', 'error_text',)
+        fields = ['mistake_in', 'error_text',]
         # fields = '__all__'
+

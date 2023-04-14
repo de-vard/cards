@@ -3,18 +3,17 @@ from django.db import models
 from django.conf import settings
 
 
+# TODO:Добавь идексацию полей, коорые будут использываться в поисках и сортировках
 class WrongCards(models.Model):
     """Карточки с ошибками"""
     CHOICE = ((None, 'Выберите в чем ошибка'), ('a', 'терминe'), ('b', 'определение'), ('c', 'произношение'))
-    mistake_in = models.CharField('Ошибка в', choices=CHOICE, max_length=3, blank=True)
-    card = models.ForeignKey('Card', on_delete=models.CASCADE,
-                             verbose_name='Ошибка', blank=True, related_name='wrong_cards')
-    error_text = models.TextField('Подробнее об ошибки', blank=True)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-                               verbose_name='Автор', blank=True, )
+    mistake_in = models.CharField('Ошибка в', choices=CHOICE, max_length=3)
+    card = models.ForeignKey('Card', on_delete=models.CASCADE, verbose_name='Ошибка', related_name='wrong_cards')
+    error_text = models.TextField('Подробнее об ошибки')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
 
     def __str__(self):
-        return self.mistake_in
+        return self.error_text
 
 
 class Card(models.Model):
@@ -25,8 +24,7 @@ class Card(models.Model):
     audi = models.FileField(upload_to='audi/%Y/%m/%d', verbose_name='Произношение',
                             validators=[validators.RegexValidator(regex=".mp3")], )
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', verbose_name='Фото')
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-                               verbose_name='Автор', blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     created = models.DateTimeField('Дата создания', auto_now_add=True)
     updated = models.DateTimeField('Дата последнего редактирования', auto_now=True)
 

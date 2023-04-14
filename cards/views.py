@@ -1,34 +1,42 @@
+from django.contrib import messages
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormMixin
 
 from cards.forms import WrongCardsForm
-from cards.models import Card, WrongCards
-from django.contrib import messages
+from cards.models import Card
 
 
-def detail_card(request, id):
-    """Просмотр отдельной карточки"""
-    card = get_object_or_404(Card, id=id)
-    form = WrongCardsForm()
-    return render(request, 'cards/detail.html', {'card': card, 'form': form, })
+class CardDetailView(FormMixin, DetailView):
+    model = Card
+    template_name = 'cards/detail.html'
+    success_message = 'Ваше сообщение об ошибке получено. Мы обязательно займемся этим.'
+    form_class = WrongCardsForm
 
+    def get_success_url(self):
+        return reverse_lazy('detail', kwargs={'pk': self.object.id})
 
-def mistake_card(request, id):
-    """Помечаем что каточка с ошибкой"""
+    def get_context_data(self, **kwargs):
+        context = super(CardDetailView, self).get_context_data(**kwargs)
+        context['form'] = self.get_form()
+        return context
 
-    card = get_object_or_404(Card, id=id)
-    wrong = WrongCards()
-    if 'text' in request.POST:
-        text_mistake = f" Имя: {request.user}\n Email: {request.user.email}\nОШИБКА ЗАКЛЮЧЕНА В ТОМ: {request.POST.get('text')}"
-        wrong.card = card
-        wrong.error_text = text_mistake
-        wrong.save()
-        messages.add_message(
-            request, messages.SUCCESS,
-            'Ваше сообщение об ошибке получено, мы займемся им в ближащее время и тобой. Я найду тебя мышь'
-        )
-    return redirect('detail', id=id)
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return super(CardDetailView, self).form_valid(form)
+
+    def form_valid(self, form):
+        form = form.save(commit=False)
+        form.author = self.request.user
+        form.card = self.get_object()
+        form.save()
+        messages.add_message(self.request, messages.SUCCESS, self.success_message)  # Выводим сообщение
+        return super(CardDetailView, self).form_valid(form)
 
 
 class CardsListView(ListView):
