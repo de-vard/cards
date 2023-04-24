@@ -23,10 +23,10 @@
           <a class="nav-link active" aria-current="page" href="#">Записан</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Слова</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'card:index' %}">Слова</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Пользователь</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'users:detail' pk=user.pk %}">Пользователь</a>
           </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

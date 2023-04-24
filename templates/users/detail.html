@@ -1,0 +1,20 @@
+{% extends "html.html" %}
+{% load static %}
+
+{% block content %}
+<h2>{{ object_user.email }}</h2>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="">Уроки</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Курсы</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Папки</a>
+  </li>
+</ul>
+<hr>
+
+{% endblock %}
