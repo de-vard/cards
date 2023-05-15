@@ -2,8 +2,10 @@ from django.core import validators
 from django.db import models
 from django.conf import settings
 
-
 # TODO:Добавь идексацию полей, коорые будут использываться в поисках и сортировках
+from django.urls import reverse
+
+
 class WrongCards(models.Model):
     """Карточки с ошибками"""
     CHOICE = ((None, 'Выберите в чем ошибка'), ('a', 'терминe'), ('b', 'определение'), ('c', 'произношение'))
@@ -21,6 +23,7 @@ class Card(models.Model):
     term = models.CharField('Термин', max_length=100)
     transcription = models.CharField('Транскрипция', max_length=100)
     definition = models.CharField('Определение', max_length=100)
+    slug = models.SlugField('Слаг', max_length=250)
     audi = models.FileField(upload_to='audi/%Y/%m/%d', verbose_name='Произношение',
                             validators=[validators.RegexValidator(regex=".mp3")], )
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', verbose_name='Фото')
@@ -30,6 +33,9 @@ class Card(models.Model):
 
     def __str__(self):
         return f'{self.term} - {self.definition}'
+
+    def get_absolute_url(self):
+        return reverse('card:detail', args=[self.slug])
 
     class Meta:
         verbose_name = "Карточку"

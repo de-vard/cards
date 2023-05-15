@@ -12,9 +12,10 @@ class WrongCardsInline(admin.TabularInline):
 
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
-    list_display = ('term', 'definition', 'card_have_wrong', 'author', 'get_image',)
-    list_editable = ('definition',)  # Быстрое редактирование
+    list_display = ('term', 'definition', 'card_have_wrong', 'slug', 'author', 'get_image',)
+    list_editable = ('definition', )  # Быстрое редактирование
     readonly_fields = ('get_image',)  # Добавляем изображение
+    prepopulated_fields = {'slug': ('term',)}  # автоматическое заполнение слага
     search_fields = ('term', 'definition',)  # Поиск
     exclude = ('author',)  # Уберем поле из админки
     inlines = [
@@ -51,7 +52,7 @@ class CardAdmin(admin.ModelAdmin):
     fieldsets = (
         ("Текстовая Информация", {
             'description': 'Эти поля обязаны для каждой карточки',
-            'fields': ('term', 'definition', 'transcription')
+            'fields': ('term', 'definition', 'transcription', 'slug')
         }),
         ('Медиа Файлы', {
             'classes': ('collapse',),  # для кнопки скрытия в админке

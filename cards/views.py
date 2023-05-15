@@ -15,7 +15,7 @@ class CardDetailView(FormMixin, DetailView):
     form_class = WrongCardsForm
 
     def get_success_url(self):
-        return reverse_lazy('card:detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('card:detail', kwargs={'slug': self.object.slug})
 
     def get_context_data(self, **kwargs):
         context = super(CardDetailView, self).get_context_data(**kwargs)

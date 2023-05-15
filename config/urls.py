@@ -21,7 +21,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),  # django-allauth
-    path('user/', include('users.urls')),
-    path('card/', include('cards.urls')),
+    path('users/', include('users.urls', namespace='users')),
+    path('card/', include('cards.urls', namespace='card')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
