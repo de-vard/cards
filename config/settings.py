@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import lesson.apps
 from config import local_settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,15 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # для работы с БД
+    'django.contrib.postgres',
+
     # django-allauth
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
 
+
+
     # local
     'cards.apps.CardsConfig',
     'users.apps.UsersConfig',
+    'lesson.apps.LessonConfig',
 
     # django-cleanup для удаления не используемых файлов
     'django_cleanup.apps.CleanupConfig',  # должен быть помещен последним
@@ -89,12 +96,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pet_project',
+        'USER': 'vlad',
+        'PASSWORD': 'admin',
+        # 'HOST': 'localhost',
+        # 'PORT': 5432,
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

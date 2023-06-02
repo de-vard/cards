@@ -1,0 +1,64 @@
+<div class="pagination">
+ {% for i in words.object_list %}
+
+
+<div class="card">
+       <div class="card-inner">
+
+        <div class="card-front" style="background-image:url('{{ i.photo.url }}');">
+         <h2 style="text-align:center;"> {{ i.term }}</h2>
+         <h3 style="text-align:center;"> [{{ i.transcription }}] </h3>
+         <button class="play-button">
+          <i class="fa fa-volume-up"></i>
+          <audio src="{{ i.audi.url }}"></audio>`
+         </button>
+        </div>
+
+        <div class="card-back" style="background-image:url('{{ i.photo.url }}');">
+            <h2 style="text-align:center;">{{ i.definition }}</h2>
+
+        </div>
+
+        </div>
+
+</div>
+    <div class="move">
+
+        {% if words.has_previous %}
+            <a href="?page={{ words.previous_page_number }}">Previous</a>
+        {% endif %}
+         {% if words.has_next %}
+            <a href="?page={{ words.next_page_number }}">Next</a>
+        {% endif %}
+    </div></div>
+
+
+
+
+    {% endfor %}
+</div>
+ <script>
+                        const cards = document.querySelectorAll('.card');
+
+                        cards.forEach(card => {
+                        card.addEventListener('click', () => {
+                        card.classList.toggle('is-flipped');
+                        });
+                        });
+
+
+ </script>
+<script>
+    var audio = document.querySelector('.play-button audio');
+    var playButton = document.querySelector('.play-button');
+
+    playButton.addEventListener('click', function() {
+    if (audio.paused) {
+    audio.play();
+    playButton.innerHTML = '<i class="fa fa-pause"></i> Pause';
+    } else {
+    audio.pause();
+    playButton.innerHTML = '<i class="fa fa-play"></i> Play';
+    }
+    });
+</script>

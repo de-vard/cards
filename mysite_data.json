@@ -1,0 +1,943 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-05-16T12:10:14.420Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Не правильные глаголы",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-05-24T08:10:57.607Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "afternoon - послеобеденное время",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-05-24T08:19:10.431Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "Childhood - детство",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-05-24T08:22:02.187Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "colleague - коллега, сослуживец",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-05-24T08:23:56.116Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "confident - самоуверенный, самонадеянный",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-05-24T08:27:44.407Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "definitely - определённо",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-05-24T08:29:04.422Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "6",
+    "object_repr": "Different - разный",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add site",
+    "content_type": 6,
+    "codename": "add_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change site",
+    "content_type": 6,
+    "codename": "change_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete site",
+    "content_type": 6,
+    "codename": "delete_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view site",
+    "content_type": 6,
+    "codename": "view_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add email address",
+    "content_type": 7,
+    "codename": "add_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change email address",
+    "content_type": 7,
+    "codename": "change_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete email address",
+    "content_type": 7,
+    "codename": "delete_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view email address",
+    "content_type": 7,
+    "codename": "view_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add email confirmation",
+    "content_type": 8,
+    "codename": "add_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change email confirmation",
+    "content_type": 8,
+    "codename": "change_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete email confirmation",
+    "content_type": 8,
+    "codename": "delete_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view email confirmation",
+    "content_type": 8,
+    "codename": "view_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add social account",
+    "content_type": 9,
+    "codename": "add_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change social account",
+    "content_type": 9,
+    "codename": "change_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete social account",
+    "content_type": 9,
+    "codename": "delete_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view social account",
+    "content_type": 9,
+    "codename": "view_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add social application",
+    "content_type": 10,
+    "codename": "add_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change social application",
+    "content_type": 10,
+    "codename": "change_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete social application",
+    "content_type": 10,
+    "codename": "delete_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view social application",
+    "content_type": 10,
+    "codename": "view_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add social application token",
+    "content_type": 11,
+    "codename": "add_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change social application token",
+    "content_type": 11,
+    "codename": "change_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete social application token",
+    "content_type": 11,
+    "codename": "delete_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view social application token",
+    "content_type": 11,
+    "codename": "view_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add Карточку",
+    "content_type": 12,
+    "codename": "add_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change Карточку",
+    "content_type": 12,
+    "codename": "change_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete Карточку",
+    "content_type": 12,
+    "codename": "delete_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view Карточку",
+    "content_type": 12,
+    "codename": "view_card"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add wrong cards",
+    "content_type": 13,
+    "codename": "add_wrongcards"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change wrong cards",
+    "content_type": 13,
+    "codename": "change_wrongcards"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete wrong cards",
+    "content_type": 13,
+    "codename": "delete_wrongcards"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view wrong cards",
+    "content_type": 13,
+    "codename": "view_wrongcards"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 14,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 14,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 14,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 14,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add Тег",
+    "content_type": 15,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change Тег",
+    "content_type": 15,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete Тег",
+    "content_type": 15,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view Тег",
+    "content_type": 15,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add Урок",
+    "content_type": 16,
+    "codename": "add_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change Урок",
+    "content_type": 16,
+    "codename": "change_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete Урок",
+    "content_type": 16,
+    "codename": "delete_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view Урок",
+    "content_type": 16,
+    "codename": "view_lesson"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sites",
+    "model": "site"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "account",
+    "model": "emailaddress"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "account",
+    "model": "emailconfirmation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialaccount"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialapp"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialtoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "cards",
+    "model": "card"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "cards",
+    "model": "wrongcards"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "users",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "lesson",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "lesson",
+    "model": "lesson"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lskaa4qyhccgqqm0ku9w3royzmm2dyym",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFAKRSP3vsNZJfdStVAUtqT8d9tkx70OPPezFtE2NYct8ZLnElchRaX3w4hPbkcgB5Q7lWmWtZlRnko8qRNjpX4dTvdv4MMLe9rhMElrdh6r0IiF9D0wVmYmL1B7fykTCLUCrAjv2dMCDx0NqieDQXx-QLrrDgt:1pytOp:eN1IuRyKc9k3IM69hzCQdvLs1Q-gyKHypbpU_TXpQ_4",
+    "expire_date": "2023-05-30T12:03:27.387Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "sk6zze8svgtrtnlke64y4gqeyjqu0oqg",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFAKRSP3vsNZJfdStVAUtqT8d9tkx70OPPezFtE2NYct8ZLnElchRaX3w4hPbkcgB5Q7lWmWtZlRnko8qRNjpX4dTvdv4MMLe9rhMElrdh6r0IiF9D0wVmYmL1B7fykTCLUCrAjv2dMCDx0NqieDQXx-QLrrDgt:1q1jKt:SnBELmURHmLUOzQi9BSEl-4gjnuykljOqgi122Uy18M",
+    "expire_date": "2023-06-07T07:55:07.712Z"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "cards.card",
+  "pk": 1,
+  "fields": {
+    "term": "afternoon",
+    "transcription": "ˌæftərˈnuːn",
+    "definition": "послеобеденное время",
+    "slug": "afternoon",
+    "audi": "audi/2023/05/24/afternoon.mp3",
+    "audio_rus": "audi/2023/05/24/9858637_138_7017877.mp3",
+    "photo": "photos/2023/05/24/Без_названия.jpg",
+    "author": 1,
+    "created": "2023-05-24T08:10:57.598Z",
+    "updated": "2023-05-24T08:10:57.598Z"
+  }
+},
+{
+  "model": "cards.card",
+  "pk": 2,
+  "fields": {
+    "term": "Childhood",
+    "transcription": "ˈtʃaɪldhʊd",
+    "definition": "детство",
+    "slug": "childhood",
+    "audi": "audi/2023/05/24/childhood.mp3",
+    "audio_rus": "",
+    "photo": "photos/2023/05/24/images_1.jpg",
+    "author": 1,
+    "created": "2023-05-24T08:19:10.414Z",
+    "updated": "2023-05-24T08:19:10.414Z"
+  }
+},
+{
+  "model": "cards.card",
+  "pk": 3,
+  "fields": {
+    "term": "colleague",
+    "transcription": "ˈkɑːliːɡ",
+    "definition": "коллега, сослуживец",
+    "slug": "colleague",
+    "audi": "audi/2023/05/24/colleagues.mp3",
+    "audio_rus": "",
+    "photo": "photos/2023/05/24/Без_названия_2.jpg",
+    "author": 1,
+    "created": "2023-05-24T08:22:02.161Z",
+    "updated": "2023-05-24T08:22:02.161Z"
+  }
+},
+{
+  "model": "cards.card",
+  "pk": 4,
+  "fields": {
+    "term": "confident",
+    "transcription": "ˈkɒnfɪd(ə)nt",
+    "definition": "самоуверенный, самонадеянный",
+    "slug": "confident",
+    "audi": "audi/2023/05/24/confident.mp3",
+    "audio_rus": "",
+    "photo": "photos/2023/05/24/Без_названия_3.jpg",
+    "author": 1,
+    "created": "2023-05-24T08:23:56.114Z",
+    "updated": "2023-05-24T08:23:56.114Z"
+  }
+},
+{
+  "model": "cards.card",
+  "pk": 5,
+  "fields": {
+    "term": "definitely",
+    "transcription": "ˈdefɪnətlɪ",
+    "definition": "определённо",
+    "slug": "definitely",
+    "audi": "audi/2023/05/24/definitely.mp3",
+    "audio_rus": "",
+    "photo": "photos/2023/05/24/Без_названия.png",
+    "author": 1,
+    "created": "2023-05-24T08:27:44.383Z",
+    "updated": "2023-05-24T08:27:44.383Z"
+  }
+},
+{
+  "model": "cards.card",
+  "pk": 6,
+  "fields": {
+    "term": "Different",
+    "transcription": "ˈdɪfrənt",
+    "definition": "разный",
+    "slug": "different",
+    "audi": "audi/2023/05/24/different.mp3",
+    "audio_rus": "",
+    "photo": "photos/2023/05/24/Без_названия_4.jpg",
+    "author": 1,
+    "created": "2023-05-24T08:29:04.406Z",
+    "updated": "2023-05-24T08:29:04.406Z"
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$edXbab11tFICQDzni6hUwU$hHId1XO4NY6S6f3tmFCJoYyUHyNwzrYDhQPVjMsaAaw=",
+    "last_login": "2023-05-24T07:55:07.626Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-05-16T12:03:05.359Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "lesson.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Не правильные глаголы",
+    "slug": "ne-pravilnye-glagoly"
+  }
+}
+]

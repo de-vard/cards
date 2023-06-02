@@ -10,23 +10,12 @@
         <input type='text' name='search' value='{{ request.GET.search }}' class="button">
         <input class="button" type='submit' value="Search Profile">
     </form>
+    <br>
     <!-- *************************************************** -->
 
 
 
-    <!-- ****************** Сортировка ****************  -->
-    <form method="get"  action="{% url 'card:list' %}">
-        <h2>Сортировка</h2>
-        <ul>
-        <div class="form-check">
-            <input type="radio" name="sorted" value="term"> Термин<br>
-            <input type="radio" name="sorted" value="definition"> Определение<br>
-            <input type="radio" name="sorted" value="created"> Дата создания<br>
-            <button  name='search' value='{{ request.GET.search }}'>Сортировать</button>
-        </div>
-        </ul>
-    </form>
-    <!-- ************************************************ -->
+
 
 
 

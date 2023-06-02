@@ -1,5 +1,8 @@
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from django.contrib.postgres.search import TrigramSimilarity
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Greatest
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
@@ -47,13 +50,12 @@ class CardsListView(ListView):
     def get_queryset(self):
         """Переопределили queryset для поиска и сортировки"""
         query = self.request.GET.get('search')
-        ordering = self.request.GET.get('sorted')
-        ordering = ordering if ordering else '-created'  # по умолчанию сортирует по дате создания
+
         # Todo: Выведи логику в отдельный файл
         if query:
-            object_list = self.model.objects.filter(
-                Q(term__icontains=query) | Q(definition__icontains=query)
-            ).order_by(ordering)
+            object_list = self.model.objects.annotate(
+                similarity=Greatest(TrigramSimilarity('term', query), TrigramSimilarity('definition', query))
+            ).filter(similarity__gt=0.1).order_by('-similarity')
         else:
-            object_list = self.model.objects.all().order_by(ordering)
+            object_list = self.model.objects.all().order_by('term')
         return object_list

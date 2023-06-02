@@ -56,6 +56,6 @@ class CardAdmin(admin.ModelAdmin):
         }),
         ('Медиа Файлы', {
             'classes': ('collapse',),  # для кнопки скрытия в админке
-            'fields': (('photo', 'get_image'), 'audi')
+            'fields': (('photo', 'get_image'), 'audi', 'audio_rus')
         }),
     )

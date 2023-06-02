@@ -20,12 +20,15 @@ class WrongCards(models.Model):
 
 class Card(models.Model):
     """Карточки слов"""
+
     term = models.CharField('Термин', max_length=100)
     transcription = models.CharField('Транскрипция', max_length=100)
     definition = models.CharField('Определение', max_length=100)
     slug = models.SlugField('Слаг', max_length=250)
     audi = models.FileField(upload_to='audi/%Y/%m/%d', verbose_name='Произношение',
                             validators=[validators.RegexValidator(regex=".mp3")], )
+    audio_rus = models.FileField(upload_to='audi/%Y/%m/%d', verbose_name='Произношение по русски', blank=True,
+                                 validators=[validators.RegexValidator(regex=".mp3")], )
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', verbose_name='Фото')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     created = models.DateTimeField('Дата создания', auto_now_add=True)
