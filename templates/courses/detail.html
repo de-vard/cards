@@ -1,0 +1,18 @@
+{% extends "html.html" %}
+
+{% block content %}
+  <h2>Название: {{ course.title }}</h2>
+  <h4>Уровень сложности: {{ course.get_level_display }}</h4>
+  <h4>Автор курса: {{ course.author }}</h4>
+  <h6>Теги курса: {{ course.tags }}</h6>
+
+  <p>Список уроков: </p>
+    <ul>
+      {% for lesson in course.lesson_set.all %}
+        <li>{{ lesson.title }}</li>
+         <a href="{% url 'lesson:detail' id=lesson.id %}">
+            перейти по сылке
+        </a>
+      {% endfor %}
+    </ul>
+{% endblock %}

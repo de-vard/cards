@@ -1,64 +1,123 @@
-<div class="pagination">
- {% for i in words.object_list %}
-
+<div class="my-container">
+{% for i in words.object_list %}
 
 <div class="card">
-       <div class="card-inner">
+<div class="front" style="background-image:url('{{ i.photo.url }}');">
 
-        <div class="card-front" style="background-image:url('{{ i.photo.url }}');">
-         <h2 style="text-align:center;"> {{ i.term }}</h2>
-         <h3 style="text-align:center;"> [{{ i.transcription }}] </h3>
-         <button class="play-button">
-          <i class="fa fa-volume-up"></i>
-          <audio src="{{ i.audi.url }}"></audio>`
-         </button>
-        </div>
+<div class="word"><h2>{{ i.term }}</h2></div>
+<div class="transcription"><h2>[{{ i.transcription }}] </h2></div>
+<div class="audio" data-audio-url="{{ i.audi.url }}">
+<button class="sound-button">
+🔊
 
-        <div class="card-back" style="background-image:url('{{ i.photo.url }}');">
-            <h2 style="text-align:center;">{{ i.definition }}</h2>
+</button>
+</div>
 
-        </div>
+<button class="prev-button">❮</button>
+<button class="next-button">❯</button>
+</div>
 
-        </div>
+<div class="back" style="background-image:url('{{ i.photo.url }}');">
+<div class="definition"><h2>{{ i.definition }}</h2></div>
+<div class="audio" data-audio-url="{{ i.audi.url }}">
+<button class="sound-button">
+🔊
+
+</button>
+</div>
+<button class="prev-button">❮</button>
+<button class="next-button">❯</button>
+</div>
 
 </div>
-    <div class="move">
 
-        {% if words.has_previous %}
-            <a href="?page={{ words.previous_page_number }}">Previous</a>
-        {% endif %}
-         {% if words.has_next %}
-            <a href="?page={{ words.next_page_number }}">Next</a>
-        {% endif %}
-    </div></div>
-
-
-
-
-    {% endfor %}
+<div class="toggle-container">
+<label for="toggle">Автоматическое воспроизведение звука:</label>
+<input type="checkbox" id="toggle">
+<span class="slider"></span>
 </div>
- <script>
-                        const cards = document.querySelectorAll('.card');
 
-                        cards.forEach(card => {
-                        card.addEventListener('click', () => {
-                        card.classList.toggle('is-flipped');
-                        });
-                        });
+</div>
 
-
- </script>
 <script>
-    var audio = document.querySelector('.play-button audio');
-    var playButton = document.querySelector('.play-button');
 
-    playButton.addEventListener('click', function() {
-    if (audio.paused) {
-    audio.play();
-    playButton.innerHTML = '<i class="fa fa-pause"></i> Pause';
-    } else {
-    audio.pause();
-    playButton.innerHTML = '<i class="fa fa-play"></i> Play';
-    }
-    });
+const words = {
+has_previous: {{ words.has_previous|yesno:"true,false" }},
+previous_page_number: {{ words.previous_page_number }},
+has_next: {{ words.has_next|yesno:"true,false" }},
+next_page_number: {{ words.next_page_number }}
+
+};
+
+const soundButtons = document.querySelectorAll('.sound-button');
+
+soundButtons.forEach((soundButton) => {
+soundButton.addEventListener('click', (event) => {
+event.stopPropagation();
+const audioUrl = soundButton.parentElement.dataset.audioUrl;
+const audio = new Audio(audioUrl);
+audio.play();
+});
+});
+
+const prevButtons = document.querySelectorAll('.prev-button');
+const nextButtons = document.querySelectorAll('.next-button');
+
+prevButtons.forEach((prevButton) => {
+if (!words.has_previous) {
+// Если нет предыдущей страницы, скрыть кнопку
+prevButton.style.display = "none";
+} else {
+prevButton.addEventListener('click', (event) => {
+event.stopPropagation();
+window.location.href = "?page=" + words.previous_page_number;
+});
+}
+});
+
+nextButtons.forEach((nextButton) => {
+if (!words.has_next) {
+// Если нет следующей страницы, скрыть кнопку
+nextButton.style.display = "none";
+} else {
+nextButton.addEventListener('click', (event) => {
+event.stopPropagation();
+window.location.href = "?page=" + words.next_page_number;
+});
+}
+});
+
+const toggle = document.querySelector('#toggle');
+const slider = document.querySelector('.slider');
+
+slider.addEventListener('click', () => {
+toggle.checked = !toggle.checked;
+});
+
+const card = document.querySelector('.card');
+card.addEventListener('click', () => {
+card.classList.toggle('flip');
+});
+
+prevButtons.forEach((prevButton) => {
+prevButton.addEventListener('click', (event) => {
+event.stopPropagation();
+// код для перехода к предыдущей карточке
+if (toggle.checked) {
+audio.play();
+}
+});
+});
+
+nextButtons.forEach((nextButton) => {
+nextButton.addEventListener('click', (event) => {
+event.stopPropagation();
+// код для перехода к следующей карточке
+if (toggle.checked) {
+audio.play();
+}
+});
+});
+
 </script>
+{% endfor %}

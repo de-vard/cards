@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'cards.apps.CardsConfig',
     'users.apps.UsersConfig',
     'lesson.apps.LessonConfig',
+    'courses.apps.CoursesConfig',
 
     # django-cleanup для удаления не используемых файлов
     'django_cleanup.apps.CleanupConfig',  # должен быть помещен последним

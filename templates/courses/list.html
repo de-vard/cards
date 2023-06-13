@@ -1,12 +1,9 @@
 {% extends "html.html" %}
 {% block content %}
-    {% for i in all_lessons %}
+    {% for i in all_courses %}
     <h2><a href="{{ i.get_absolute_url }}">{{ i }}</a></h2>
-    Количество слов: {{ i.words_count }}
-
+    Количество уроков: {{ i.lesson_count }}
     {% empty %}
         Нехуя нет
     {% endfor %}
 {% endblock %}
-
-

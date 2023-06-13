@@ -8,6 +8,3 @@ class LessonAdmin(admin.ModelAdmin):
     filter_horizontal = ['words']  # меняем виджет при выборе слов
 
 
-@admin.register(models.Tag)
-class TagAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}  # автоматическое заполнение слага
