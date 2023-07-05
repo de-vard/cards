@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-
-
     # local
     'cards.apps.CardsConfig',
     'users.apps.UsersConfig',
@@ -115,8 +113,6 @@ DATABASES = {
     }
 }
 
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -159,8 +155,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Медиа файлы
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Эти настройки обеспечат Django возможность управлять закачиванием файлов на сайт и раздачей медиафайлов.
+MEDIA_URL = '/media/'  # базовый URL-адрес, используемый для раздачи медиафайлов, закачанных пользователями на сайт
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # это локальный путь, где находятся медиафайлы
 
 # Настройка модели пользователя
 AUTH_USER_MODEL = 'users.CustomUser'

@@ -18,6 +18,20 @@ class WrongCards(models.Model):
         return self.error_text
 
 
+class Image(models.Model):
+    """Изображения"""
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d', verbose_name='Фото')
+    title = models.CharField(max_length=50, verbose_name='Название')
+    related_words = models.TextField('Связанные слова', blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Изображение"
+        verbose_name_plural = "Изображения"
+
+
 class Card(models.Model):
     """Карточки слов"""
 
@@ -25,11 +39,23 @@ class Card(models.Model):
     transcription = models.CharField('Транскрипция', max_length=100)
     definition = models.CharField('Определение', max_length=100)
     slug = models.SlugField('Слаг', max_length=250)
-    audi = models.FileField(upload_to='audi/%Y/%m/%d', verbose_name='Произношение',
-                            validators=[validators.RegexValidator(regex=".mp3")], )
-    audio_rus = models.FileField(upload_to='audi/%Y/%m/%d', verbose_name='Произношение по русски', blank=True,
-                                 validators=[validators.RegexValidator(regex=".mp3")], )
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d', verbose_name='Фото')
+    audi = models.FileField(
+        upload_to='audi/%Y/%m/%d',
+        verbose_name='Произношение',
+        validators=[validators.RegexValidator(regex=".mp3")],
+    )
+    audio_rus = models.FileField(
+        upload_to='audi/%Y/%m/%d',
+        verbose_name='Произношение по русски',
+        blank=True,
+        validators=[validators.RegexValidator(regex=".mp3")],
+    )
+    image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name='Фото'
+    )
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     created = models.DateTimeField('Дата создания', auto_now_add=True)
     updated = models.DateTimeField('Дата последнего редактирования', auto_now=True)

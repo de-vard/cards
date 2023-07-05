@@ -6,8 +6,9 @@ register = template.Library()
 
 @register.inclusion_tag('lesson/html_tags/card.html')
 def learn_cards(request, obj):
+    """Пагнация"""
 
-    paginator = Paginator(obj.words.all(), 1)
+    paginator = Paginator(obj.redy_words.all(), 1)
     page_number = request.GET.get('page', 1)
 
     try:

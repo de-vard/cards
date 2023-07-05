@@ -5,6 +5,6 @@ from lesson import models
 # Register your models here.
 @admin.register(models.Lesson)
 class LessonAdmin(admin.ModelAdmin):
-    filter_horizontal = ['words']  # меняем виджет при выборе слов
+    filter_horizontal = ['redy_words']  # меняем виджет при выборе слов
 
 

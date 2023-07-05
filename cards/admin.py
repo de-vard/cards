@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cards.models import Card, WrongCards
+from cards.models import Card, WrongCards, Image
 from django.utils.safestring import mark_safe
 
 
@@ -13,7 +13,7 @@ class WrongCardsInline(admin.TabularInline):
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
     list_display = ('term', 'definition', 'card_have_wrong', 'slug', 'author', 'get_image',)
-    list_editable = ('definition', )  # Быстрое редактирование
+    list_editable = ('definition',)  # Быстрое редактирование
     readonly_fields = ('get_image',)  # Добавляем изображение
     prepopulated_fields = {'slug': ('term',)}  # автоматическое заполнение слага
     search_fields = ('term', 'definition',)  # Поиск
@@ -29,8 +29,8 @@ class CardAdmin(admin.ModelAdmin):
 
     def get_image(self, obj):
         """Получаем мини изображение или возвращаем что его нет"""
-        if obj.photo:
-            return mark_safe(f'<img src={obj.photo.url} width="50" height="60">')
+        if obj.image:
+            return mark_safe(f'<img src={obj.image.photo.url} width="50" height="60">')
         else:
             return 'Фото отсутствует'
 
@@ -56,6 +56,11 @@ class CardAdmin(admin.ModelAdmin):
         }),
         ('Медиа Файлы', {
             'classes': ('collapse',),  # для кнопки скрытия в админке
-            'fields': (('photo', 'get_image'), 'audi', 'audio_rus')
+            'fields': (('image', 'get_image'), 'audi', 'audio_rus')
         }),
     )
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    pass
