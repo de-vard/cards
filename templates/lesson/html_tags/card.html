@@ -39,85 +39,85 @@
 
 </div>
 
-<script>
+<!--<script>-->
 
-const words = {
-has_previous: {{ words.has_previous|yesno:"true,false" }},
-previous_page_number: {{ words.previous_page_number }},
-has_next: {{ words.has_next|yesno:"true,false" }},
-next_page_number: {{ words.next_page_number }}
+<!--const words = {-->
+<!--has_previous: {{ words.has_previous|yesno:"true,false" }},-->
+<!--previous_page_number: {{ words.previous_page_number }},-->
+<!--has_next: {{ words.has_next|yesno:"true,false" }},-->
+<!--next_page_number: {{ words.next_page_number }}-->
 
-};
+<!--};-->
 
-const soundButtons = document.querySelectorAll('.sound-button');
+<!--const soundButtons = document.querySelectorAll('.sound-button');-->
 
-soundButtons.forEach((soundButton) => {
-soundButton.addEventListener('click', (event) => {
-event.stopPropagation();
-const audioUrl = soundButton.parentElement.dataset.audioUrl;
-const audio = new Audio(audioUrl);
-audio.play();
-});
-});
+<!--soundButtons.forEach((soundButton) => {-->
+<!--soundButton.addEventListener('click', (event) => {-->
+<!--event.stopPropagation();-->
+<!--const audioUrl = soundButton.parentElement.dataset.audioUrl;-->
+<!--const audio = new Audio(audioUrl);-->
+<!--audio.play();-->
+<!--});-->
+<!--});-->
 
-const prevButtons = document.querySelectorAll('.prev-button');
-const nextButtons = document.querySelectorAll('.next-button');
+<!--const prevButtons = document.querySelectorAll('.prev-button');-->
+<!--const nextButtons = document.querySelectorAll('.next-button');-->
 
-prevButtons.forEach((prevButton) => {
-if (!words.has_previous) {
-// Если нет предыдущей страницы, скрыть кнопку
-prevButton.style.display = "none";
-} else {
-prevButton.addEventListener('click', (event) => {
-event.stopPropagation();
-window.location.href = "?page=" + words.previous_page_number;
-});
-}
-});
+<!--prevButtons.forEach((prevButton) => {-->
+<!--if (!words.has_previous) {-->
+<!--// Если нет предыдущей страницы, скрыть кнопку-->
+<!--prevButton.style.display = "none";-->
+<!--} else {-->
+<!--prevButton.addEventListener('click', (event) => {-->
+<!--event.stopPropagation();-->
+<!--window.location.href = "?page=" + words.previous_page_number;-->
+<!--});-->
+<!--}-->
+<!--});-->
 
-nextButtons.forEach((nextButton) => {
-if (!words.has_next) {
-// Если нет следующей страницы, скрыть кнопку
-nextButton.style.display = "none";
-} else {
-nextButton.addEventListener('click', (event) => {
-event.stopPropagation();
-window.location.href = "?page=" + words.next_page_number;
-});
-}
-});
+<!--nextButtons.forEach((nextButton) => {-->
+<!--if (!words.has_next) {-->
+<!--// Если нет следующей страницы, скрыть кнопку-->
+<!--nextButton.style.display = "none";-->
+<!--} else {-->
+<!--nextButton.addEventListener('click', (event) => {-->
+<!--event.stopPropagation();-->
+<!--window.location.href = "?page=" + words.next_page_number;-->
+<!--});-->
+<!--}-->
+<!--});-->
 
-const toggle = document.querySelector('#toggle');
-const slider = document.querySelector('.slider');
+<!--const toggle = document.querySelector('#toggle');-->
+<!--const slider = document.querySelector('.slider');-->
 
-slider.addEventListener('click', () => {
-toggle.checked = !toggle.checked;
-});
+<!--slider.addEventListener('click', () => {-->
+<!--toggle.checked = !toggle.checked;-->
+<!--});-->
 
-const card = document.querySelector('.card');
-card.addEventListener('click', () => {
-card.classList.toggle('flip');
-});
+<!--const card = document.querySelector('.card');-->
+<!--card.addEventListener('click', () => {-->
+<!--card.classList.toggle('flip');-->
+<!--});-->
 
-prevButtons.forEach((prevButton) => {
-prevButton.addEventListener('click', (event) => {
-event.stopPropagation();
-// код для перехода к предыдущей карточке
-if (toggle.checked) {
-audio.play();
-}
-});
-});
+<!--prevButtons.forEach((prevButton) => {-->
+<!--prevButton.addEventListener('click', (event) => {-->
+<!--event.stopPropagation();-->
+<!--// код для перехода к предыдущей карточке-->
+<!--if (toggle.checked) {-->
+<!--audio.play();-->
+<!--}-->
+<!--});-->
+<!--});-->
 
-nextButtons.forEach((nextButton) => {
-nextButton.addEventListener('click', (event) => {
-event.stopPropagation();
-// код для перехода к следующей карточке
-if (toggle.checked) {
-audio.play();
-}
-});
-});
+<!--nextButtons.forEach((nextButton) => {-->
+<!--nextButton.addEventListener('click', (event) => {-->
+<!--event.stopPropagation();-->
+<!--// код для перехода к следующей карточке-->
+<!--if (toggle.checked) {-->
+<!--audio.play();-->
+<!--}-->
+<!--});-->
+<!--});-->
 
-</script>
+<!--</script>-->
 {% endfor %}
